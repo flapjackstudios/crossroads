@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: crossroads
+    runtime: node
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /healthz
+    envVars:
+      - key: MAPILLARY_TOKEN
+        sync: false

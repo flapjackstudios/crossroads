@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>CROSSROADS</title>
+  <link rel="stylesheet" href="https://unpkg.com/mapillary-js@4.1.2/dist/mapillary.css">
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <main class="shell">
+    <header><div class="brand">CROSS<span>ROADS</span></div><div class="tag">NO MAP. NO CLUES. JUST FIND EACH OTHER.</div></header>
+    <section id="lobby" class="panel">
+      <div class="eyebrow">TWO PLAYER STREET EXPLORATION</div>
+      <h1>Somewhere out there,<br><em>they're looking for you.</em></h1>
+      <p class="muted">Explore the same city from opposite ends. No map, no markers, no coordinates. Meet on the same stretch of street to win.</p>
+      <label for="playerName">YOUR NAME</label><input id="playerName" maxlength="18" placeholder="Player 1" value="Player">
+      <div class="actions"><button id="createBtn" class="primary">CREATE ROOM</button><div class="or">OR</div><div class="joinline"><input id="roomInput" maxlength="4" placeholder="ROOM CODE"><button id="joinBtn">JOIN</button></div></div>
+      <p id="lobbyError" class="error"></p>
+      <div id="roomInfo" class="roominfo hidden"><span>ROOM CODE</span><strong id="roomCode">----</strong><p id="playerStatus">Waiting for another player…</p><button id="startBtn" class="primary hidden">START ROUND</button></div>
+    </section>
+    <section id="game" class="hidden">
+      <div class="hud"><div><small>LOCATION</small><strong id="cityName">UNKNOWN CITY</strong></div><div class="roompill">ROOM <b id="gameCode">----</b></div><div class="status" id="gameStatus">SEARCHING FOR OPPONENT</div></div>
+      <div id="viewer" aria-label="Street-level panorama"></div>
+      <div class="bottom"><span>WASD / ARROW KEYS OR DRAG TO LOOK AROUND</span><span>GET WITHIN 18 METERS OF YOUR OPPONENT</span></div>
+    </section>
+    <section id="finished" class="panel hidden"><div class="eyebrow">ROUND COMPLETE</div><h1><em>You found each other.</em></h1><p id="winMessage" class="muted">Both players reached the same location.</p><button onclick="location.reload()" class="primary">PLAY AGAIN</button></section>
+    <footer><span>CROSSROADS / BUILD 0.1</span><span>NO MAP. NO SHORTCUTS.</span></footer>
+  </main>
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="https://unpkg.com/mapillary-js@4.1.2/dist/mapillary.js"></script>
+  <script src="/client.js"></script>
+</body></html>
